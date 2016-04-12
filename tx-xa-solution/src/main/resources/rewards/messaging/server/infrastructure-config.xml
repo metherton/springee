@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Configure a Spring JTA TX mgr with Atomikos-provided tx mgr impl and user tx impl -->
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManager">
+			<bean class="com.atomikos.icatch.jta.UserTransactionManager"
+				  init-method="init" destroy-method="close"/>
+		</property>
+		<property name="userTransaction">
+			<bean class="com.atomikos.icatch.jta.UserTransactionImp">
+				<property name="transactionTimeout" value="300"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- use an XA-aware DataSource wrapper for Atomikos: -->
+	<bean id="dataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+		  init-method="init" destroy-method="close">
+		<property name="uniqueResourceName" value="XADBMS"/>
+		<property name="xaDataSource">
+			<!-- Use auto-created embedded Derby DB with JDBC 4.0 XA DataSource: -->
+			<bean class="org.apache.derby.jdbc.EmbeddedXADataSource40">
+				<property name="databaseName" value="rewardsdb" />
+				<property name="createDatabase" value="create" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Use an XA-aware Atomikos ConnectionFactory wrapper: -->
+	<bean id="connectionFactory" class="com.atomikos.jms.AtomikosConnectionFactoryBean" 
+	      init-method="init" destroy-method="close">
+		<property name="uniqueResourceName" value="QUEUE_BROKER"/>
+		<property name="xaConnectionFactory">
+			<!-- Use embedded ActiveMQ with XA ConnectionFactory -->
+			<bean class="org.apache.activemq.ActiveMQXAConnectionFactory">
+				<property name="brokerURL" value="vm:broker:(tcp://localhost:61616)?persistent=false"/>
+				<property name="redeliveryPolicy">
+					<bean class="org.apache.activemq.RedeliveryPolicy">
+						<property name="maximumRedeliveries" value="3"/>
+					</bean>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Creates the initial DB schema and data if the DB is empty -->
+	<bean class="rewards.messaging.server.DatabaseCreator">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+</beans>

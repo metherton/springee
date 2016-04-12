@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amqp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/amqp-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-admin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-admin-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-intro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-intro-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-restart-recovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/batch-restart-recovery-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ei-course-intro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ei-course-intro-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jms-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jms-tx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jms-tx-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-client-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-distributed-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-distributed-api-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/remoting-server-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rest-intro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rest-intro-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rewards" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rewards-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-advanced" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-advanced-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-configuration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-configuration-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-demo-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-intro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/si-intro-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/soap-ws" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/soap-ws-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tasks" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tasks-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tx-xa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tx-xa-solution" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ws-advanced" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ws-advanced-solution" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

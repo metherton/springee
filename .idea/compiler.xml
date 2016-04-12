@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Annotation profile for ws-advanced-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ws-advanced-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for ws-advanced" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ws-advanced" />
+      </profile>
+      <profile default="false" name="Annotation profile for soap-ws-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="soap-ws-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-distributed-api" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-distributed-api" />
+      </profile>
+      <profile default="false" name="Annotation profile for soap-ws" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="soap-ws" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-distributed-api-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-distributed-api-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-server" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-server" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-client-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-client-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-client" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-client" />
+      </profile>
+      <profile default="false" name="Annotation profile for tasks-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="tasks-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for remoting-server-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="remoting-server-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for tasks" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="tasks" />
+      </profile>
+      <profile default="false" name="Annotation profile for ei-course-intro-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ei-course-intro-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-restart-recovery" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-restart-recovery" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-intro-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-intro-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-intro" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-intro" />
+      </profile>
+      <profile default="false" name="Annotation profile for ei-course-intro" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ei-course-intro" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-admin-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-admin-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for rewards" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="rewards" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-admin" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-admin" />
+      </profile>
+      <profile default="false" name="Annotation profile for rewards-common" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="rewards-common" />
+      </profile>
+      <profile default="false" name="Annotation profile for batch-restart-recovery-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="batch-restart-recovery-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-intro-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-intro-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-intro" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-intro" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-advanced-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-advanced-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-advanced" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-advanced" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-configuration-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-configuration-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-configuration" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-configuration" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-demo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-demo" />
+      </profile>
+      <profile default="false" name="Annotation profile for tx-xa-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="tx-xa-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for tx-xa" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="tx-xa" />
+      </profile>
+      <profile default="false" name="Annotation profile for jms-tx-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jms-tx-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for si-demo-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="si-demo-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for amqp" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="amqp" />
+      </profile>
+      <profile default="false" name="Annotation profile for rest-intro-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="rest-intro-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for rest-intro" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="rest-intro" />
+      </profile>
+      <profile default="false" name="Annotation profile for jms-tx" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jms-tx" />
+      </profile>
+      <profile default="false" name="Annotation profile for jms-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jms-solution" />
+      </profile>
+      <profile default="false" name="Annotation profile for jms" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jms" />
+      </profile>
+      <profile default="false" name="Annotation profile for amqp-solution" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="amqp-solution" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="amqp" target="1.7" />
+      <module name="amqp-solution" target="1.7" />
+      <module name="batch-admin" target="1.7" />
+      <module name="batch-admin-solution" target="1.7" />
+      <module name="batch-intro" target="1.7" />
+      <module name="batch-intro-solution" target="1.7" />
+      <module name="batch-restart-recovery" target="1.7" />
+      <module name="batch-restart-recovery-solution" target="1.7" />
+      <module name="ei-course-intro" target="1.7" />
+      <module name="ei-course-intro-solution" target="1.7" />
+      <module name="jms" target="1.7" />
+      <module name="jms-solution" target="1.7" />
+      <module name="jms-tx" target="1.7" />
+      <module name="jms-tx-solution" target="1.7" />
+      <module name="parentEiwsProject" target="1.7" />
+      <module name="remoting-client" target="1.7" />
+      <module name="remoting-client-solution" target="1.7" />
+      <module name="remoting-distributed-api" target="1.7" />
+      <module name="remoting-distributed-api-solution" target="1.7" />
+      <module name="remoting-server" target="1.7" />
+      <module name="remoting-server-solution" target="1.7" />
+      <module name="rest-intro" target="1.7" />
+      <module name="rest-intro-solution" target="1.7" />
+      <module name="rewards" target="1.7" />
+      <module name="rewards-common" target="1.7" />
+      <module name="si-advanced" target="1.7" />
+      <module name="si-advanced-solution" target="1.7" />
+      <module name="si-configuration" target="1.7" />
+      <module name="si-configuration-solution" target="1.7" />
+      <module name="si-demo" target="1.7" />
+      <module name="si-demo-solution" target="1.7" />
+      <module name="si-intro" target="1.7" />
+      <module name="si-intro-solution" target="1.7" />
+      <module name="soap-ws" target="1.7" />
+      <module name="soap-ws-solution" target="1.7" />
+      <module name="tasks" target="1.7" />
+      <module name="tasks-solution" target="1.7" />
+      <module name="tx-xa" target="1.7" />
+      <module name="tx-xa-solution" target="1.7" />
+      <module name="ws-advanced" target="1.7" />
+      <module name="ws-advanced-solution" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

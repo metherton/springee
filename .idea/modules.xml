@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/amqp/amqp.iml" filepath="$PROJECT_DIR$/amqp/amqp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/amqp-solution/amqp-solution.iml" filepath="$PROJECT_DIR$/amqp-solution/amqp-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-admin/batch-admin.iml" filepath="$PROJECT_DIR$/batch-admin/batch-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-admin-solution/batch-admin-solution.iml" filepath="$PROJECT_DIR$/batch-admin-solution/batch-admin-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-intro/batch-intro.iml" filepath="$PROJECT_DIR$/batch-intro/batch-intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-intro-solution/batch-intro-solution.iml" filepath="$PROJECT_DIR$/batch-intro-solution/batch-intro-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-restart-recovery/batch-restart-recovery.iml" filepath="$PROJECT_DIR$/batch-restart-recovery/batch-restart-recovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batch-restart-recovery-solution/batch-restart-recovery-solution.iml" filepath="$PROJECT_DIR$/batch-restart-recovery-solution/batch-restart-recovery-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ei-course-intro/ei-course-intro.iml" filepath="$PROJECT_DIR$/ei-course-intro/ei-course-intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ei-course-intro-solution/ei-course-intro-solution.iml" filepath="$PROJECT_DIR$/ei-course-intro-solution/ei-course-intro-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jms/jms.iml" filepath="$PROJECT_DIR$/jms/jms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jms-solution/jms-solution.iml" filepath="$PROJECT_DIR$/jms-solution/jms-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jms-tx/jms-tx.iml" filepath="$PROJECT_DIR$/jms-tx/jms-tx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jms-tx-solution/jms-tx-solution.iml" filepath="$PROJECT_DIR$/jms-tx-solution/jms-tx-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parentEiwsProject.iml" filepath="$PROJECT_DIR$/parentEiwsProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-client/remoting-client.iml" filepath="$PROJECT_DIR$/remoting-client/remoting-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-client-solution/remoting-client-solution.iml" filepath="$PROJECT_DIR$/remoting-client-solution/remoting-client-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-distributed-api/remoting-distributed-api.iml" filepath="$PROJECT_DIR$/remoting-distributed-api/remoting-distributed-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-distributed-api-solution/remoting-distributed-api-solution.iml" filepath="$PROJECT_DIR$/remoting-distributed-api-solution/remoting-distributed-api-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-server/remoting-server.iml" filepath="$PROJECT_DIR$/remoting-server/remoting-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remoting-server-solution/remoting-server-solution.iml" filepath="$PROJECT_DIR$/remoting-server-solution/remoting-server-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest-intro/rest-intro.iml" filepath="$PROJECT_DIR$/rest-intro/rest-intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest-intro-solution/rest-intro-solution.iml" filepath="$PROJECT_DIR$/rest-intro-solution/rest-intro-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rewards/rewards.iml" filepath="$PROJECT_DIR$/rewards/rewards.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rewards-common/rewards-common.iml" filepath="$PROJECT_DIR$/rewards-common/rewards-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-advanced/si-advanced.iml" filepath="$PROJECT_DIR$/si-advanced/si-advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-advanced-solution/si-advanced-solution.iml" filepath="$PROJECT_DIR$/si-advanced-solution/si-advanced-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-configuration/si-configuration.iml" filepath="$PROJECT_DIR$/si-configuration/si-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-configuration-solution/si-configuration-solution.iml" filepath="$PROJECT_DIR$/si-configuration-solution/si-configuration-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-demo/si-demo.iml" filepath="$PROJECT_DIR$/si-demo/si-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-demo-solution/si-demo-solution.iml" filepath="$PROJECT_DIR$/si-demo-solution/si-demo-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-intro/si-intro.iml" filepath="$PROJECT_DIR$/si-intro/si-intro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/si-intro-solution/si-intro-solution.iml" filepath="$PROJECT_DIR$/si-intro-solution/si-intro-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soap-ws/soap-ws.iml" filepath="$PROJECT_DIR$/soap-ws/soap-ws.iml" />
+      <module fileurl="file://$PROJECT_DIR$/soap-ws-solution/soap-ws-solution.iml" filepath="$PROJECT_DIR$/soap-ws-solution/soap-ws-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tasks/tasks.iml" filepath="$PROJECT_DIR$/tasks/tasks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tasks-solution/tasks-solution.iml" filepath="$PROJECT_DIR$/tasks-solution/tasks-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tx-xa/tx-xa.iml" filepath="$PROJECT_DIR$/tx-xa/tx-xa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tx-xa-solution/tx-xa-solution.iml" filepath="$PROJECT_DIR$/tx-xa-solution/tx-xa-solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ws-advanced/ws-advanced.iml" filepath="$PROJECT_DIR$/ws-advanced/ws-advanced.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ws-advanced-solution/ws-advanced-solution.iml" filepath="$PROJECT_DIR$/ws-advanced-solution/ws-advanced-solution.iml" />
+    </modules>
+  </component>
+</project>

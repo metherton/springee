@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jms="http://www.springframework.org/schema/jms"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/jms
+              http://www.springframework.org/schema/jms/spring-jms.xsd">
+
+	<import resource="classpath:/app-config.xml"/>
+
+	<bean id="diningListener" class="rewards.messaging.server.DiningListener">
+		<constructor-arg ref="rewardNetwork"/>
+		<constructor-arg>
+			<bean class="org.springframework.jms.core.JmsTemplate">
+				<property name="connectionFactory" ref="connectionFactory"/>
+				<property name="defaultDestinationName" value="rewards.queue.confirmation"/>
+				<property name="sessionTransacted" value="true"/>
+			</bean>
+		</constructor-arg>
+	</bean>
+
+<!-- TODO 04: Add a transaction-manager attribute that references the JTA transaction manager -->
+	<jms:listener-container acknowledge="transacted">
+		<jms:listener ref="diningListener" destination="rewards.queue.dining"/>
+	</jms:listener-container>
+
+
+<!-- TODO 05:  Run the StartServer application.
+               Then run the StartSender application to send messages. 
+			   Use the instructions in lab document for using JConsole for rest of the lab. 
+-->
+
+</beans>

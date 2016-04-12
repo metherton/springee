@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="dataSource" class="org.apache.derby.jdbc.EmbeddedDataSource40">
+		<property name="databaseName" value="rewardsdb" />
+		<property name="createDatabase" value="create" />
+	</bean>
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="vm:broker:(tcp://localhost:61616)?persistent=false"/>
+		<property name="redeliveryPolicy">
+			<bean class="org.apache.activemq.RedeliveryPolicy">
+				<property name="maximumRedeliveries" value="3"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Creates the initial DB schema and data if the DB is empty -->
+	<bean class="rewards.messaging.server.DatabaseCreator">
+		<constructor-arg ref="jdbcTemplate"/>
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+</beans>

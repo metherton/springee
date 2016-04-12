@@ -1,0 +1,127 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>ws-security: Implementing WS-Security with Spring Web Services</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.0"><link rel="start" href="index.html" title="Enterprise Spring - Lab Documentation"><link rel="up" href="index.html" title="Enterprise Spring - Lab Documentation"><link rel="prev" href="advanced-xml-lab.html" title="advanced-xml: XML Schema Validation and OXM Mapping Using JAXB2 and Spring-OXM"><link rel="next" href="spring-configuration.html" title="Appendix&nbsp;A.&nbsp;Spring XML Configuration Tips"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns="http://www.w3.org/TR/xhtml1/transitional" style="background-color:white;border:none;height:73px;border:1px solid black;"><a style="border:none;" href="http://www.springframework.org/" title="The Spring Framework"><img style="border:none;" src="images/xdev-spring_logo.jpg"></img></a><a style="border:none;" href="http://www.springsource.com/" title="SpringSource"><img style="border:none;position:absolute;padding-top:5px;right:42px;" src="images/springsource-banner-rhs.jpg"></img></a></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="ws-security"></a>ws-security: Implementing WS-Security with Spring Web Services</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ws-security-lab-introduction"></a>1.&nbsp;Introduction</h2></div></div></div><p>
+In this lab you will gain experience with WS-Security. You will add WS-Security support to an existing Spring-WS Web Service, use the Java keytool to generate a certificate, and use that certificate for authentication purposes. Furthermore, you will sign a SOAP message using this certificate. 
+ </p><div class="orderedlist"><p class="title"><b>What you will learn:</b></p><ol type="1"><li><p>Enabling the WS-Security support in Spring Web Services</p></li><li><p>To use the Java <span class="emphasis"><em>keytool</em></span> command</p></li><li><p>To authenticate using a X.509 certificate</p></li><li><p>To sign SOAP messages using a X.509 certificate</p></li></ol></div><div class="orderedlist"><p class="title"><b>Specific subjects you will gain experience with:</b></p><ol type="1"><li><p>WS-Security</p></li></ol></div><p>
+Estimated time to complete: 45 minutes
+ </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ws-security-lab-instructions"></a>2.&nbsp;Instructions</h2></div></div></div><p>
+The instructions for this lab are organized into sections. In the first section, you will create the required X.509 certificates using an Ant script. In the following section, you will configure the existing Spring-WS application to use these certificates for authentication and signatures, and finally, you will test the application. 
+ </p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e8502"></a>2.1.&nbsp;Creating the X.509 Certificates</h3></div></div></div><p>
+X.509 certificates can be used for authentication, signing, and encryption. A certificate can contain a private key, which should not be shared, and which is used to sign outgoing messages; and a public key, which can be shared, and is used by other parties to verify the signature.
+  </p><p>
+In this section, you will use the keytool to create a client-side certificate, export this to a shared location, and import it into a server-side trust store. This store contains all certificates trusted by the server. 
+  </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8509"></a>2.1.1.&nbsp;Step 1: Creating the client-side certificate</h4></div></div></div><p>
+In the <span class="emphasis"><em>ws-security</em></span> project, open the <span class="emphasis"><em>build.xml</em></span> file in the root directory. This Ant build file contains targets for creating, exporting, and importing certificates, using both the built-in <span class="emphasis"><em>genkey</em></span> task and the native <span class="emphasis"><em>keytool</em></span> command.
+   </p><p>
+In the <span class="emphasis"><em>create-client-certificate</em></span> target, the <span class="emphasis"><em>genkey</em></span> ant task is used to create a client-side certificate. This task is currently missing the <span class="emphasis"><em>distinguished name</em></span> (DN) of the certificate holder. A certificate distinguished name expresses the owner of the certificate, and is built in a hierarchical format.
+   </p><p>
+To add a distinguished name to the certificate, add a <span class="emphasis"><em>dname</em></span> attribute to the <span class="emphasis"><em>genkey</em></span> task, expressing the distinguished name. A DN consists of one or more comma-separated key-value pairs, expressing the certificate holder in a hierarchical format. At the very least, a DN contains a common name (CN), but it can also contain an organizational unit (OU), organization name (O), and country (C ). Here are some distinguished name examples:
+   </p><div class="itemizedlist"><ul type="disc"><li><code class="code">CN=Ant Group, OU=Jakarta Division, O=Apache.org, C=US</code></li><li><code class="code">CN=Keith and Keri Donald, OU=Training, O=SpringSource, C=US</code></li></ul></div><p>
+Add a distinguished name appropriate for you to the dname attribute, or simply pick one from above (<span class="emphasis"><em>TODO 01</em></span>). Afterwards, run the <span class="emphasis"><em>create-client-certificate</em></span> target from the build file. The output from this target should be 
+   </p><pre class="programlisting">
+[genkey] Generating Key for client.
+   </pre><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png"></td><th align="left">Tip</th></tr><tr><td align="left" valign="top"><p>
+To run an Ant target in Eclipse, open the Ant view (Press <span class="emphasis"><em>Ctrl + 3</em></span> and type <span class="emphasis"><em>ant</em></span> followed by <span class="emphasis"><em>enter</em></span>), and drag-and-drop the build.xml into this view. Then double-click the desired target. This saves you from opening a command prompt to run Ant. Alternatively, just right click the build.xml and then Run As...-&gt;Ant Build.
+     </p></td></tr></table></div><p>
+After you ran the target, you can verify whether the certificate has been created successfully by running the <span class="emphasis"><em>list-client-certificates</em></span> target. This should show all the information about the certificates currently in the client key store. For the client, there should be only one certificate listed.
+   </p><p>
+When you've done this, make sure you refresh your project, and move on to the next step!
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8581"></a>2.1.2.&nbsp;Step 2: Exporting the client-side certificate</h4></div></div></div><p>
+Now that you've created the certificate, you should export it so that it can be used by others. In this case, you're going to use it on the server-side, to verify the signature of incoming messages.
+   </p><p>
+To export the certificate, another Ant target has been provided: <span class="emphasis"><em>export-client-certificate</em></span>. If you inspect this target, you will see that it uses <span class="emphasis"><em>keytool</em></span> to export the certificate you just created to a file called <span class="emphasis"><em>client.cer</em></span>, in the root of the project.
+   </p><p>
+Execute the <span class="emphasis"><em>export-client-certificate</em></span> target now, in the same way you executed the <span class="emphasis"><em>create-client-certificate</em></span> target earlier. The output of the command should be similar to 
+   </p><pre class="programlisting">
+[exec] Certificate stored in file 
+&lt;C:\enterprise-integration-2.0.0.RELEASE\
+            enterprise-integration-2.0.0.RELEASE\
+                        ws-security\client.cer&gt;.
+   </pre><p>
+Refresh your project, and see that the file <span class="emphasis"><em>client.cer</em></span> has indeed been stored in the root of the project. You can double-click the certificate, which will give a dialog similar to the following:
+   </p><div class="mediaobject"><img src="images/certificate.png"></div><p></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8616"></a>2.1.3.&nbsp;Step 3: Importing the client-side certificate</h4></div></div></div><p>
+To conclude this section, you need to create a server-side trust store, and import the client certificate into this store. This store will contain all certificates trusted by the server: if a certificate is not in the store, it is not trusted.
+   </p><p>
+Inspect the <span class="emphasis"><em>create-server-certificate</em></span> target in the Ant build file. You will see that is very similar to the target you used earlier, except that all necessary information has already been filled in. Run this target, as you ran the two earlier targets.
+   </p><p>
+Next, you have to import the <span class="emphasis"><em>client.cer</em></span> into the trust store you just created. For this, use the <span class="emphasis"><em>import-client-certificate</em></span> target. Run this target, and the output should be something like:
+   </p><pre class="programlisting">
+[exec] Certificate was added to keystore.
+   </pre><p>
+To verify whether the server-side trust store contains all necessary certificates, refresh your project, and run the <span class="emphasis"><em>list-server-certificate</em></span> task. This will list all certificates in the server trust store. If everything went ok, you will see that it contains two certificates: one for the server itself, and one for the client.
+   </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e8641"></a>2.2.&nbsp; Adding WS-Security Support to the Web Service</h3></div></div></div><p>
+Now that you have successfully created all necessary certificates, you can enable WS-Security support in the web service. WS-Security support is provided through an <span class="emphasis"><em>endpoint interceptor</em></span>, which intercepts each incoming Web service message. If it contains WS-Security information, this will be handled by the interceptor, without having any influence on the endpoint handling code.
+  </p><p>
+If you look in the project, you will see that it contains the layout of the familiar Reward Network application. Browse through this project to make yourself familiar with the layout.
+  </p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8651"></a>2.2.1.&nbsp;Step 4: Adding the <span class="emphasis"><em>XwsSecurityInterceptor</em></span></h4></div></div></div><p>
+Open the <span class="emphasis"><em>rewardNetwork-servlet-config.xml</em></span> (it's in <span class="emphasis"><em>src/main/webapp/WEB-INF</em></span>) and inspect it.
+   </p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png"></td><th align="left">Tip</th></tr><tr><td align="left" valign="top"><p>
+To open a file that's not a Java type in Eclipse, press Ctrl-Shift-R and type (part of) the filename. This saves you from finding the file in the explorer.
+     </p></td></tr></table></div><p>
+This is a Spring Web Service configuration file that is configured to scan for endpoints under the <code class="literal">rewards.ws</code> package and to use the Spring-WS annotation-driven programming model. It will call the <code class="classname">RewardNetworkEndpoint</code> for requests with a <code class="literal">&lt;rewardAccountForDiningRequest&gt;</code> root element as the payload. 
+   </p><p>
+You will notice that there's also an <code class="literal">&lt;interceptors&gt;</code> tag with an inner bean. This tag is used to configure the list of endpoint interceptors which are executed before and after every incoming request. Currently, there is a <span class="emphasis"><em>SoapEnvelopeLoggingInterceptor</em></span> listed, which simply dumps the SOAP contents of the message to the log. We are going to add another interceptor after it, to handle WS-Security messages.
+   </p><p>
+Add a new bean definition to the interceptors under the current logging interceptor (<span class="emphasis"><em>TODO 02</em></span>). Set its <span class="emphasis"><em>class</em></span> to <code class="classname">org.springframework.ws.soap.security.xwss.XwsSecurityInterceptor</code>.
+    </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8697"></a>2.2.2.&nbsp;Step 5: Defining the security policy</h4></div></div></div><p>
+Next, you have to define the security policy file. In this file, you determine what security features you enable and disable.
+   </p><p>
+Open <span class="emphasis"><em>server-policy.xml</em></span> in <span class="emphasis"><em>src/main/webapp/WEB-INF/xwss</em></span>. It is currently empty, but you will add a signature policy to it (<span class="emphasis"><em>TODO 03</em></span>). To do this, add the following security configuration to the file:
+   </p><pre class="programlisting">
+&lt;xwss:SecurityConfiguration dumpMessages="false" 
+    xmlns:xwss="http://java.sun.com/xml/ns/xwss/config"&gt;
+  &lt;xwss:RequireSignature requireTimestamp="false"/&gt;
+&lt;/xwss:SecurityConfiguration&gt;
+   </pre><p>
+This indicates that the Web service requires signatures for incoming messages.
+   </p><p>
+The security interceptor will need to read this security policy at start-up. To do this, open the <span class="emphasis"><em>rewardNetwork-servlet-config.xml</em></span> again, and add a <span class="emphasis"><em>policyConfiguration</em></span> property to the interceptor bean defined in the previous step, and set this value to the location of the policy file (i.e. <span class="emphasis"><em>/WEB-INF/xwss/server-policy.xml</em></span>).
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8728"></a>2.2.3.&nbsp;Step 6: Defining the trust store</h4></div></div></div><p>
+Next, you have to configure the trust store you created in the previous section. This store contains the public key of the client-side certificate. Spring Web Services provides a <span class="emphasis"><em>KeyStoreFactoryBean</em></span> for this purpose.
+   </p><p>
+In the <span class="emphasis"><em>rewardNetwork-servlet-config.xml</em></span>, add a new bean definition (<span class="emphasis"><em>TODO 04</em></span>). Set the class to <span class="emphasis"><em>org.springframework.ws.soap.security.support.KeyStoreFactoryBean</em></span>, and the id to <span class="emphasis"><em>trustStore</em></span>. Set the <span class="emphasis"><em>location</em></span> property value to the location of the trust store (i.e. <span class="emphasis"><em>/WEB-INF/xwss/server-store.jks</em></span>), and set the <span class="emphasis"><em>password</em></span> property value to <span class="emphasis"><em>server</em></span>.
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8762"></a>2.2.4.&nbsp;Step 7: Adding the certificate handler</h4></div></div></div><p>
+Concluding this section, you have to let the security interceptor use the trust store bean just defined. This is done through a <span class="emphasis"><em>KeyStoreCallbackHandler</em></span>. The security interceptor uses callback handlers such as these to get authentication information, and information about certificates.
+   </p><p>
+In the <span class="emphasis"><em>rewardNetwork-servlet-config.xml</em></span>, add a new bean definition (<span class="emphasis"><em>TODO 05</em></span>). Set the class to <span class="emphasis"><em>org.springframework.ws.soap.security.xwss.callback.KeyStoreCallbackHandler</em></span>, and set the id to <span class="emphasis"><em>callbackHandler</em></span>. Set the property <span class="emphasis"><em>trustStore</em></span> of this bean to refer to the <span class="emphasis"><em>trustStore</em></span> bean you just defined.
+   </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+Note that Spring Web Services provides two different implementations of <span class="emphasis"><em>KeyStoreCallbackHandler</em></span> - one specific the Apache wss4j project, and one for Sun's XWSS.  You want the latter, and it's easy when using content assist to accidentally grab the wrong one.  Simply make sure that the package for your bean is <span class="emphasis"><em>org.springframework.ws.soap.security.xwss.callback</em></span> and you're good to go.
+     </p></td></tr></table></div><p>
+Finally, in the configuration of the security interceptor bean, add a <span class="emphasis"><em>callbackHandler</em></span> property, which refers to the particular callback handler you just added.
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8804"></a>2.2.5.&nbsp;Run the application</h4></div></div></div><p>
+In this section, you will run the Web service, and see whether the incoming SOAP messages are correctly signed.
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8809"></a>2.2.6.&nbsp;Step 8: Start the web application</h4></div></div></div><p>
+Now that the application has been wired properly you must start the web application to export it. Start the web application for this project. Once started, the welcome page (just a static index page at the context root) should be accessible as [http://localhost:8080/ws-security]
+   </p><p>
+When your server starts properly move on to the next section.
+   </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d0e8816"></a>2.2.7.&nbsp;Step 9: Test the Web service</h4></div></div></div><p>
+Open and run the <span class="emphasis"><em>SecureSoapRewardNetworkTests</em></span> test class in the <span class="emphasis"><em>rewards.ws.security.client</em></span> package of the <span class="emphasis"><em>src/test/java</em></span> source folder. If you see a green bar, you've completed this lab. Congratulations.
+   </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d0e8830"></a>2.3.&nbsp;Bonus: Changing Signed Data</h3></div></div></div><p>
+If you have time, you can experiment by changing the signed data and seeing the result.
+  </p><p>
+Refer to the previous lab regarding the use of TCP/IP monitor; modify the client in this lab to route requests through the TCP/IP monitor. Examine the request and see how the content is signed. 
+  </p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip: Important Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png"></td><th align="left">Important Tip</th></tr><tr><td align="left" valign="top"><p>
+Before following the instructions below, the dropdown should be set to 'byte' to enable editing. In addition, to enable sending the modified data, ensure that the 'Show Header' option is selected (click the down arrow near the top right and select 'Show Header').
+    </p></td></tr></table></div><p>
+In the top pane of the monitor, right-click the last message; select 'Modify Request'; this will create a copy of the request below.
+  </p><p>
+In the bottom-left pane (request) find the amount="$100" and change it to, say, "$200".
+  </p><p>
+In the top pane, right click the modified message (below the original message), and select 'Send Modified Request'.
+  </p><p>
+Examine the response pane to see the error.
+  </p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png"></td><th align="left">Tip</th></tr><tr><td align="left" valign="top"><p>
+You may wish to select 'XML' in the response dropdown.
+    </p></td></tr></table></div><p>
+You should see something like
+  </p><pre class="programlisting">
+&lt;faultcode&gt;SOAP-ENV:Client&lt;/faultcode&gt;
+&lt;faultstring xml:lang="en"&gt;
+com.sun.xml.wss.XWSSecurityException: 
+ com.sun.xml.wss.impl.WssSoapFaultException: 
+  Signature verification failed ; 
+ nested exception is com.sun.xml.wss.XWSSecurityException: 
+ com.sun.xml.wss.XWSSecurityException: 
+ com.sun.xml.wss.impl.WssSoapFaultException: 
+  Signature verification failed &lt;/faultstring&gt;
+  </pre></div></div></div><div xmlns="http://www.w3.org/TR/xhtml1/transitional" class="navfooter"><hr></hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="advanced-xml-lab.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="spring-configuration.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">advanced-xml: XML Schema Validation and OXM Mapping Using JAXB2 and Spring-OXM&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:90%;"><a href="http://www.springsource.com/" title="SpringSource">By SpringSource</a></span></td><td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;A.&nbsp;Spring XML Configuration Tips</td></tr></table></div></body></html>

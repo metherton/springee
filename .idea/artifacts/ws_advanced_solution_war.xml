@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ws-advanced-solution:war">
+    <output-path>$PROJECT_DIR$/ws-advanced-solution/target</output-path>
+    <root id="archive" name="ws-advanced-solution-4.0.a-CI-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ws-advanced-solution:war exploded" />
+    </root>
+  </artifact>
+</component>

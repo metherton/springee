@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="batch-admin:war">
+    <output-path>$PROJECT_DIR$/batch-admin/target</output-path>
+    <root id="archive" name="batch-admin-4.0.a-CI-SNAPSHOT.war">
+      <element id="artifact" artifact-name="batch-admin:war exploded" />
+    </root>
+  </artifact>
+</component>
